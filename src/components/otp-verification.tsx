@@ -7,7 +7,7 @@ interface IProps {
 const OtpVerification = ({ length, onOtpSubmit }: IProps) => {
   //creating an empty array of string of given length
   const [otp, setOtp] = useState<string[]>(new Array(length).fill(""));
-  const inputRefs = useRef<HTMLInputElement[] | null>([]);
+  const inputRefs = useRef<any>([]);
 
   console.log(inputRefs, "inputRefs");
 
