@@ -47,7 +47,7 @@ const OtpInput = () => {
             Verification code submitted to {phoneNumber}
           </div>
 
-          <OtpVerification length={5} onOtpSubmit={onOtpSubmit} />
+          <OtpVerification length={4} onOtpSubmit={onOtpSubmit} />
         </>
       )}
     </div>
