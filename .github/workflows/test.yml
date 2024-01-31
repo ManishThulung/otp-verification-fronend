@@ -1,0 +1,27 @@
+name: OTP-loging react js
+
+# Push - action will trigger if someone pushes to the main branch
+# Pull request - action will trigger if someone opens a pull request from the main branch.
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      # actions/checkout basically performs a local git clone of the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        # actions/setup-node@v1. This action takes care of installing Node.js inside the container running our job
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "20.x"
+      - name: Run Npm
+        run: npm install
+      - name: Run build
+        run: npm run build
