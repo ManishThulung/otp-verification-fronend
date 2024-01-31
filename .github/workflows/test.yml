@@ -9,19 +9,26 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
+
     steps:
       # actions/checkout basically performs a local git clone of the repository
+
       - name: Checkout repository
-        uses: actions/checkout@v2
-        # actions/setup-node@v1. This action takes care of installing Node.js inside the container running our job
-      - name: Use Node.js
-        uses: actions/setup-node@v1
+        uses:
+          actions/checkout@v2
+
+          # actions/setup-node@v1. This action takes care of installing Node.js inside the container running our job
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: "20"
-      - name: Run Npm
-        run: npm i
-      - name: Run build
+          node-version: "14" # Specify the version you want
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
         run: npm run build
